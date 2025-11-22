@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    container_name: insighthub-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/uploaded_data:/app/uploaded_data
+    networks:
+      - insighthub-net
+
+  frontend:
+    build: ./frontend
+    container_name: insighthub-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - insighthub-net
+
+networks:
+  insighthub-net:
+    driver: bridge
