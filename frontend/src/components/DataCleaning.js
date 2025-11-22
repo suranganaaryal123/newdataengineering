@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-<<<<<<< HEAD
 const API = process.env.REACT_APP_API_URL;
-=======
-const API = "https://data-engineering-hkx6.onrender.com";
->>>>>>> d9a2548 (Remove build folder)
+
 
 export default function DataCleaning({ datasetId, onDatasetUpdate }) {
   const [duplicates, setDuplicates] = useState(null);
