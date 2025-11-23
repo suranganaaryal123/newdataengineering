@@ -8,6 +8,7 @@ router = APIRouter(prefix="/upload", tags=["Upload"])
 DATA_DIR = "uploaded_data"
 os.makedirs(DATA_DIR, exist_ok=True)
 
+@router.post("")
 @router.post("/")
 async def upload_dataset(file: UploadFile = File(...)):
     dataset_id = str(uuid.uuid4())
